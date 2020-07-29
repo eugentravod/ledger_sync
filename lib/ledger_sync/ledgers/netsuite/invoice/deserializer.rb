@@ -26,7 +26,7 @@ module LedgerSync
           attribute :start_date, hash_attribute: 'startDate'
           attribute :status
           attribute :total
-          attribute :transacion_id, hash_attribute: 'tranId'
+          attribute :transaction_id, hash_attribute: 'tranId'
           attribute :transaction_date, hash_attribute: 'trandate'
 
           references_one :currency
