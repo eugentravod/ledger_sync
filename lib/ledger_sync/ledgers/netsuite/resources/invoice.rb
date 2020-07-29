@@ -10,8 +10,21 @@ module LedgerSync
     module NetSuite
       class Invoice < NetSuite::Resource
         attribute :memo, type: Type::String
-        attribute :transaction_date, type: Type::Date
-        attribute :deposit, type: Type::Integer
+        attribute :created_date, type: Type::Date
+        attribute :amount_remaining, type: Type::Float
+        attribute :amount_paid, type: Type::Float
+        attribute :deposit, type: Type::Float
+        attribute :due_date, type: Type::Date
+        attribute :estimated_gross_profit_percent, type: Type::Float
+        attribute :sales_effective_date, type: Type::Date
+        attribute :ship_address, type: Type::String
+        attribute :ship_date, type: Type::Date
+        attribute :start_date, type: Type::Date
+        attribute :status, type: Type::String
+        attribute :total, type: Type::Float
+        attribute :transacion_id, type: Type::String
+        attribute :transaction_date, type: Type::String
+
 
         references_one :customer, to: Customer
         references_one :account, to: Account
