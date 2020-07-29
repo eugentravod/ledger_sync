@@ -22,7 +22,7 @@ module LedgerSync
         attribute :start_date, type: Type::Date
         attribute :status, type: Type::String
         attribute :total, type: Type::Float
-        attribute :transacion_id, type: Type::String
+        attribute :transaction_id, type: Type::String
         attribute :transaction_date, type: Type::String
 
 
