@@ -23,7 +23,7 @@ module LedgerSync
         attribute :status, type: Type::String
         attribute :total, type: Type::Float
         attribute :transaction_id, type: Type::String
-        attribute :transaction_date, type: Type::String
+        attribute :transaction_date, type: Type::Date
 
 
         references_one :customer, to: Customer
