@@ -26,9 +26,9 @@ module LedgerSync
         attribute :transaction_date, type: Type::Date
 
 
-        references_one :customer, to: Customer
-        references_one :account, to: Account
         references_one :currency, to: Currency
+        references_one :account, to: Account
+        references_one :customer, to: Customer
 
         references_many :line_items, to: InvoiceLineItem
 

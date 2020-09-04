@@ -3,7 +3,7 @@
 require_relative '../currency/deserializer'
 require_relative '../account/deserializer'
 require_relative '../customer/deserializer'
-require_relative '../journal_entry_line_item/deserializer'
+require_relative '../invoice_line_item/deserializer'
 
 module LedgerSync
   module Ledgers
@@ -31,31 +31,12 @@ module LedgerSync
 
           references_one :currency
           references_one :account
-          references_one :customer
+          references_one :customer, hash_attribute: 'entity',
+                                    deserializer: LedgerSync::Ledgers::NetSuite::Customer::Deserializer
+
           references_many :line_items,
-                          hash_attribute: 'line.items',
-                          deserializer: LedgerSync::Ledgers::NetSuite::JournalEntryLineItem::Deserializer
-
-
-          # attribute :customer, type: Type::DeserializerCustomerType.new(customer_class: Customer)
-          # attribute :account, type: Type::DeserializerCustomerType.new(customer_class: Account)
-          # attribute :currency, type: Type::DeserializerActiveType.new(customer_class: Currency)
-          # attribute :line_items, type: Type::DeserializerCustomerType.new(customer_class: LineItems)
-
-
-          # attribute :amountremaining
-          #########
-          # "amountpaid"=>0.0,
-          # "amountremaining"=>30.01,
-          # "amountremainingtotalbox"=>30.01,
-          # "balance"=>30.01,
-          ########
-          # attribute :companyName
-          # attribute :firstName
-          # attribute :lastName
-          # attribute :email
-          # attribute :phone
-
+                          hash_attribute: 'item.items',
+                          deserializer: LedgerSync::Ledgers::NetSuite::InvoiceLineItem::Deserializer
         end
       end
     end

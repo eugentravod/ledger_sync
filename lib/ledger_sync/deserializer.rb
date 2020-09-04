@@ -33,20 +33,20 @@ module LedgerSync
 
       deserialize_into = resource.dup # Do not overwrite values in the resource
       hash = Util::HashHelpers.deep_stringify_keys(hash)
-
+# binding.pry
       self.class.attributes.each_value do |deserializer_attribute|
         value = attribute_value_from_ledger(
           hash: hash,
           deserializer_attribute: deserializer_attribute,
           resource: deserialize_into
         )
-
+        # binding.pry
         deserialize_into.assign_attribute(
           deserializer_attribute.resource_attribute_dot_parts.first,
           value
         )
       end
-
+#      binding.pry
       deserialize_into
     end
 

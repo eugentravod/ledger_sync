@@ -16,6 +16,8 @@ module LedgerSync
 
           attribute :number,
                     hash_attribute: :acctnumber
+          attribute :ref_name,
+                  hash_attribute: :refName
         end
       end
     end

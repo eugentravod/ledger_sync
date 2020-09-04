@@ -12,7 +12,9 @@ module LedgerSync
         attribute :lastName, type: LedgerSync::Type::String
         attribute :phone, type: LedgerSync::Type::String
 
+        attribute :ref_name, type: LedgerSync::Type::String
         references_one :subsidiary, to: Subsidiary
+
       end
     end
   end

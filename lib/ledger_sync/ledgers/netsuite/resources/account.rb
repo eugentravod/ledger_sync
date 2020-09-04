@@ -35,6 +35,7 @@ module LedgerSync
         attribute :number, type: Type::String
         attribute :description, type: Type::String
         attribute :active, type: Type::Boolean
+        attribute :ref_name, type: Type::String
 
         references_one :currency, to: Currency
       end
