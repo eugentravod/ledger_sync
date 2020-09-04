@@ -15,6 +15,9 @@ module LedgerSync
 
           attribute :subsidiary,
                     type: Type::DeserializerSubsidiaryType.new(subsidiary_class: Subsidiary)
+
+          attribute :ref_name,
+                    hash_attribute: :refName
         end
       end
     end

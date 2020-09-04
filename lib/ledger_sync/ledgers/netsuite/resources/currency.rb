@@ -7,6 +7,7 @@ module LedgerSync
         attribute :exchange_rate, type: Type::Float
         attribute :name, type: Type::String
         attribute :symbol, type: Type::String
+        attribute :ref_name, type: Type::String
       end
     end
   end
