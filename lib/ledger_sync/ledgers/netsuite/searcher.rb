@@ -6,16 +6,31 @@ module LedgerSync
       class Searcher < Ledgers::Searcher
         include Mixins::OffsetAndLimitPaginationSearcherMixin
 
+        attr_reader :criteria
+
+        def initialize(client:, query:, criteria:, pagination: {})
+          super(client: client, query: query, pagination: pagination)
+          @criteria = criteria
+        end
+
         def query_attributes
           @query_attributes ||= searcher_deserializer_class.attributes.values.map(&:hash_attribute)
         end
 
         def query_string
-          "SELECT #{query_attributes.join(', ')} FROM #{query_table}"
+          "SELECT #{query_attributes.join(', ')} FROM #{query_table} #{query_criteria}"
         end
 
         def query_table
           @query_table ||= client.class.ledger_resource_type_for(resource_class: self.class.inferred_resource_class)
+        end
+
+        def query_criteria
+          @query_criteria ||= if criteria.present?
+            "WHERE #{criteria}"
+          else
+            ''
+          end
         end
 
         def request_url
