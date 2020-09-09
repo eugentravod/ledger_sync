@@ -4,7 +4,9 @@ module LedgerSync
   module Ledgers
     module NetSuite
       class Currency < NetSuite::Resource
-        attribute :exchange_rate, type: Type::Float
+        # attribute :exchange_rate, type: Type::Float
+        # Replaced type with String because the error with deserialization
+        attribute :exchange_rate, type: Type::String
         attribute :name, type: Type::String
         attribute :symbol, type: Type::String
         attribute :ref_name, type: Type::String
