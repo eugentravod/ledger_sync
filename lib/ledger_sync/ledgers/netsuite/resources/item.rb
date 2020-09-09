@@ -5,6 +5,8 @@ module LedgerSync
     module NetSuite
       class Item < NetSuite::Resource
         attribute :name, type: Type::String
+        attribute :ref_name, type: Type::String
+
       end
     end
   end

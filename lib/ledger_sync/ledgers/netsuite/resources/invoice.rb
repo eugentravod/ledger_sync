@@ -4,6 +4,7 @@ require_relative 'account'
 require_relative 'currency'
 require_relative 'customer'
 require_relative 'invoice_line_item'
+require_relative 'location'
 
 module LedgerSync
   module Ledgers
@@ -25,7 +26,7 @@ module LedgerSync
         attribute :transaction_id, type: Type::String
         attribute :transaction_date, type: Type::Date
 
-
+        references_one :location, to: Location
         references_one :currency, to: Currency
         references_one :account, to: Account
         references_one :customer, to: Customer

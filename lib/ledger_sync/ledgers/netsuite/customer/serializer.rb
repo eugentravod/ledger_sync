@@ -7,18 +7,19 @@ module LedgerSync
     module NetSuite
       class Customer
         class Serializer < NetSuite::Serializer
+          ledger_id
+
           attribute :companyName
+          attribute :firstName
+          attribute :lastName
+          attribute :email
+          attribute :phone
 
           attribute :externalId,
                     resource_attribute: :external_id
 
-          attribute :email
-
-          attribute :phone
-
-          attribute :firstName
-
-          attribute :lastName
+          attribute :refName,
+                    resource_attribute: :ref_name
 
           references_one :subsidiary,
                          serializer: Reference::Serializer

@@ -2,6 +2,7 @@
 
 require_relative 'account'
 require_relative 'tax_code'
+require_relative 'item'
 
 module LedgerSync
   module Ledgers
@@ -13,6 +14,7 @@ module LedgerSync
         attribute :quantity, type: Type::Float
         attribute :rate, type: Type::Float
         references_one :tax_code, to: TaxCode
+        references_one :item, to: Item
         attribute :description, type: Type::String
 
         def name

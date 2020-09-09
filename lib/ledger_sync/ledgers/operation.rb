@@ -72,7 +72,6 @@ module LedgerSync
                     rescue StandardError => e
                       parsed_error = client.parse_operation_error(error: e, operation: self)
                       raise e unless parsed_error
-
                       failure(parsed_error)
                     ensure
                       @performed = true
