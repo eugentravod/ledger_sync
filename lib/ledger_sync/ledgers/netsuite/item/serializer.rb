@@ -7,10 +7,11 @@ module LedgerSync
         class Serializer < NetSuite::Serializer
           ledger_id
 
-          attribute :name
-
-          attribute :refName,
-                    resource_attribute: :ref_name
+          attribute :external_id
+          attribute :subtype
+          attribute :item_id
+          attribute :itemType,
+                    resource_attribute: :item_type
         end
       end
     end
