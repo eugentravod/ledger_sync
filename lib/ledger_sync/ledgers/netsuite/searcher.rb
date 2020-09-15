@@ -75,6 +75,15 @@ module LedgerSync
         def default_offset
           0
         end
+
+        def paginate(**keywords)
+          self.class.new(
+            client: client,
+            query: query,
+            criteria: criteria,
+            pagination: keywords
+          )
+        end
       end
     end
   end
