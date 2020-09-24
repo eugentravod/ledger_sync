@@ -70,6 +70,18 @@ module LedgerSync
           @searcher_deserializer_class ||= self.class.inferred_serialization_class(type: 'SearcherDeserializer')
         end
 
+        def fetch_all_search_result_records
+          records = []
+          operation = self
+          loop do
+            result = operation.search
+            records += result.resources
+            break if result.resources.blank?
+            operation = result.next_searcher
+          end
+          records
+        end
+
         private
 
         def default_offset
