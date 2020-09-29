@@ -13,6 +13,10 @@ module LedgerSync
           attribute :description
           attribute :quantity
           attribute :rate
+          attribute :subtype
+          attribute :itemType,
+                    resource_attribute: :item_type
+
           references_one :item, resource_attribute: :item,
                                 serializer: LedgerSync::Ledgers::NetSuite::Item::Serializer
           references_one :taxCode, resource_attribute: :tax_code,

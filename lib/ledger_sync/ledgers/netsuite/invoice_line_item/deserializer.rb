@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# frozen_string_literal: true
+
 require_relative '../tax_code/deserializer'
 require_relative '../item/deserializer'
 
@@ -14,7 +14,9 @@ module LedgerSync
           attribute :description
           attribute :quantity
           attribute :rate
-          references_one :item, hash_attribute: 'item', deserializer: LedgerSync::Ledgers::NetSuite::Item::Deserializer 
+          attribute :item_type
+          attribute :subtype
+          references_one :item, hash_attribute: 'item', deserializer: LedgerSync::Ledgers::NetSuite::Item::Deserializer
           references_one :tax_code, hash_attribute: 'taxCode', deserializer: LedgerSync::Ledgers::NetSuite::TaxCode::Deserializer
         end
       end
