@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'subsidiary'
+require_relative 'customer_currency_list_item'
 
 module LedgerSync
   module Ledgers
@@ -14,7 +15,7 @@ module LedgerSync
 
         attribute :ref_name, type: LedgerSync::Type::String
         references_one :subsidiary, to: Subsidiary
-
+        references_many :currency_list, to: CustomerCurrencyListItem
       end
     end
   end
