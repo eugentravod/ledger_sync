@@ -18,6 +18,10 @@ module LedgerSync
         attribute :subtype, type: Type::String
         references_one :item, to: Item
         attribute :description, type: Type::String
+        # Optionally fields specific for our sync needs
+
+        references_one :source_language, to: Item
+        references_one :target_language, to: Item
 
         def name
           # description

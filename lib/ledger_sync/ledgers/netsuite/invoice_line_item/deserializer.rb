@@ -18,6 +18,10 @@ module LedgerSync
           attribute :subtype
           references_one :item, hash_attribute: 'item', deserializer: LedgerSync::Ledgers::NetSuite::Item::Deserializer
           references_one :tax_code, hash_attribute: 'taxCode', deserializer: LedgerSync::Ledgers::NetSuite::TaxCode::Deserializer
+
+          references_one :source_language, hash_attribute: 'custcolcustlinetravod_from_lang_field', deserializer: LedgerSync::Ledgers::NetSuite::Item::Deserializer
+          references_one :target_language, hash_attribute: 'custcolcustcolcustlinetravod_from_lan', deserializer: LedgerSync::Ledgers::NetSuite::Item::Deserializer
+
         end
       end
     end

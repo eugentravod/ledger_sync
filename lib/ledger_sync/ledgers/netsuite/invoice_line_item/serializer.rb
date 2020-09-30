@@ -21,6 +21,11 @@ module LedgerSync
                                 serializer: LedgerSync::Ledgers::NetSuite::Item::Serializer
           references_one :taxCode, resource_attribute: :tax_code,
                                    serializer: LedgerSync::Ledgers::NetSuite::TaxCode::Serializer
+        
+          references_one :custcolcustlinetravod_from_lang_field, resource_attribute: :source_language,
+                                                                 serializer: LedgerSync::Ledgers::NetSuite::Item::Serializer
+          references_one :custcolcustcolcustlinetravod_from_lan, resource_attribute: :target_language,
+                                                                  serializer: LedgerSync::Ledgers::NetSuite::Item::Serializer
         end
       end
     end
