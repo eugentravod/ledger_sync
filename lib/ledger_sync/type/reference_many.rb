@@ -33,6 +33,9 @@ module LedgerSync
       end
 
       def valid?(value:)
+        # Attempt to handle the invoice deserialization which has one customer which might have many currency_list items referenced by references_many
+        # On invoice deserialization currency_list record is empty which raises and exceptions.
+        return true if value == nil 
         return false unless value.is_a?(Array)
         return true if (resource_classes & value.map(&:class)).any?
         return true if value.is_a?(Array) && value.empty?
