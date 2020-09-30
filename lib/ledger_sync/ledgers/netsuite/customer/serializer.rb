@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../reference/serializer'
+require_relative '../customer_currency_list_item/serializer'
 
 module LedgerSync
   module Ledgers
@@ -23,6 +24,10 @@ module LedgerSync
 
           references_one :subsidiary,
                          serializer: Reference::Serializer
+
+          references_many 'currencyList.items', 
+                          resource_attribute: :currency_list,
+                          serializer: LedgerSync::Ledgers::NetSuite::CustomerCurrencyListItem::Serializer
         end
       end
     end
