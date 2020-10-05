@@ -16,6 +16,8 @@ module LedgerSync
           attribute :rate
           attribute :item_type
           attribute :subtype
+          attribute :cost_estimate, hash_attribute: :costEstimate
+
           references_one :item, hash_attribute: 'item', deserializer: LedgerSync::Ledgers::NetSuite::Item::Deserializer
           references_one :tax_code, hash_attribute: 'taxCode', deserializer: LedgerSync::Ledgers::NetSuite::TaxCode::Deserializer
 

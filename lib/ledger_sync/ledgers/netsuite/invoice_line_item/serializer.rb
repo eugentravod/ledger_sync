@@ -14,8 +14,8 @@ module LedgerSync
           attribute :quantity
           attribute :rate
           attribute :subtype
-          attribute :itemType,
-                    resource_attribute: :item_type
+          attribute :itemType, resource_attribute: :item_type
+          attribute :costEstimate, resource_attribute: :cost_estimate
 
           references_one :item, resource_attribute: :item,
                                 serializer: LedgerSync::Ledgers::NetSuite::Item::Serializer
