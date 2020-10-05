@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../customer_currency_list_item/deserializer'
+require_relative '../tax_code/deserializer'
 
 module LedgerSync
   module Ledgers
@@ -18,8 +19,13 @@ module LedgerSync
           attribute :subsidiary,
                     type: Type::DeserializerSubsidiaryType.new(subsidiary_class: Subsidiary)
 
-          attribute :ref_name,
-                    hash_attribute: :refName
+          attribute :ref_name, hash_attribute: :refName
+
+          attribute :is_person, hash_attribute: :isPerson
+          attribute :vatregnumber
+          attribute :country, hash_attribute: :Address1_country
+          attribute :address, hash_attribute: :Address1_defaultBilling
+          references_one :tax_code, hash_attribute: :taxItem, serializer: LedgerSync::Ledgers::NetSuite::TaxCode::Serializer
 
           references_many :currency_list, 
                     hash_attribute: 'currencyList.items',

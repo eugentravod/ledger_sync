@@ -2,6 +2,7 @@
 
 require_relative 'subsidiary'
 require_relative 'customer_currency_list_item'
+require_relative 'tax_code'
 
 module LedgerSync
   module Ledgers
@@ -12,6 +13,12 @@ module LedgerSync
         attribute :firstName, type: LedgerSync::Type::String
         attribute :lastName, type: LedgerSync::Type::String
         attribute :phone, type: LedgerSync::Type::String
+        attribute :is_person, type: LedgerSync::Type::Boolean
+        attribute :vatregnumber, type: LedgerSync::Type::String
+        attribute :country, type: LedgerSync::Type::String
+        attribute :address, type: LedgerSync::Type::String
+
+        references_one :tax_code, to: TaxCode
 
         attribute :ref_name, type: LedgerSync::Type::String
         references_one :subsidiary, to: Subsidiary
