@@ -18,12 +18,15 @@ module LedgerSync
           attribute :amount_remaining, hash_attribute: 'amountremaining'
           attribute :memo
           attribute :deposit
-          attribute :due_date, hash_attribute: 'duedate'
+          attribute :due_date, hash_attribute: 'dueDate'
           attribute :estimated_gross_profit_percent, hash_attribute: 'estGrossProfitPercent'
           attribute :sales_effective_date, hash_attribute: 'saleseffectivedate'
           attribute :ship_address, hash_attribute: 'shipAddress'
           attribute :ship_date, hash_attribute: 'shipDate'
           attribute :start_date, hash_attribute: 'startDate'
+          attribute :end_date, hash_attribute: 'endDate'
+          attribute :exchange_rate, hash_attribute: 'exchangeRate'
+          
           attribute :status
           attribute :total
           attribute :transaction_id, hash_attribute: 'tranId'

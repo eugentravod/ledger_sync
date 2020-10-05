@@ -20,12 +20,13 @@ module LedgerSync
           attribute :amountremaining, resource_attribute: :amount_remaining
           attribute :memo
           attribute :deposit
-          attribute :duedate, resource_attribute: :due_date 
-          attribute :estGrossProfitPercent, resource_attribute: :estimated_gross_profit_percent
           attribute :saleseffectivedate, resource_attribute: :sales_effective_date
           attribute :shipAddress, resource_attribute: :ship_address
           attribute :shipDate, resource_attribute: :ship_date
+          attribute :dueDate, resource_attribute: :due_date
           attribute :startDate, resource_attribute: :start_date
+          attribute :endDate, resource_attribute: :end_date
+          attribute :exchangeRate, resource_attribute: :exchange_rate
           attribute :status
           attribute :total
           attribute :tranId, resource_attribute: :transaction_id 

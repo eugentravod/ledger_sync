@@ -17,10 +17,12 @@ module LedgerSync
         attribute :deposit, type: Type::Float
         attribute :due_date, type: Type::Date
         attribute :estimated_gross_profit_percent, type: Type::Float
+        attribute :exchange_rate, type: Type::Float
         attribute :sales_effective_date, type: Type::Date
         attribute :ship_address, type: Type::String
         attribute :ship_date, type: Type::Date
         attribute :start_date, type: Type::Date
+        attribute :end_date, type: Type::Date
         attribute :status, type: Type::String
         attribute :total, type: Type::Float
         attribute :transaction_id, type: Type::String
