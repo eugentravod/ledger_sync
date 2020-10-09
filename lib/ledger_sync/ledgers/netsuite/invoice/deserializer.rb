@@ -12,7 +12,7 @@ module LedgerSync
         class Deserializer < NetSuite::Deserializer
           id
          
-          attribute :external_id
+          attribute :external_id, hash_attribute: :externalid
           attribute :created_date, hash_attribute: 'createdDate'
           attribute :amount_paid, hash_attribute: 'amountpaid'
           attribute :amount_remaining, hash_attribute: 'amountremaining'

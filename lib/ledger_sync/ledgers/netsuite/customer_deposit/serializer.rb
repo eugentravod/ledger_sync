@@ -13,8 +13,7 @@ module LedgerSync
           references_one :customer,
                          serializer: Reference::Serializer
 
-          attribute :externalId,
-                    resource_attribute: :external_id
+          attribute :externalid, resource_attribute: :external_id
 
           attribute :payment
           attribute :undepFunds

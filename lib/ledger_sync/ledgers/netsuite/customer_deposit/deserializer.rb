@@ -7,6 +7,7 @@ module LedgerSync
         class Deserializer < NetSuite::Deserializer
           id
 
+          attribute :external_id, hash_attribute: :externalid
           references_one :account
 
           references_one :customer

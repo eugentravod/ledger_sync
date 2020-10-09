@@ -14,7 +14,7 @@ module LedgerSync
         class Serializer < NetSuite::Serializer
           ledger_id
 
-          # attribute :external_id
+          attribute :external_id, resource_attribute: :externalid
           attribute :createdDate, resource_attribute: :created_date
           attribute :amountpaid, resource_attribute: :amount_paid
           attribute :amountremaining, resource_attribute: :amount_remaining

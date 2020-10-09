@@ -17,9 +17,7 @@ module LedgerSync
           attribute :email
           attribute :phone
 
-          attribute :externalId,
-                    resource_attribute: :external_id
-
+          attribute :externalid, resource_attribute: :external_id
           attribute :refName,
                     resource_attribute: :ref_name
 
