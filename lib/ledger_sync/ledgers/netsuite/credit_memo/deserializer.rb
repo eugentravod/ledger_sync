@@ -22,6 +22,9 @@ module LedgerSync
           attribute :ship_address, hash_attribute: 'shipAddress'
           attribute :status
           attribute :total
+          attribute :applied
+          attribute :balance
+          attribute :exchange_rate, hash_attribute: 'exchangeRate'
           attribute :transaction_id, hash_attribute: 'tranId'
           attribute :transaction_date, hash_attribute: 'trandate'
 
@@ -30,9 +33,9 @@ module LedgerSync
           references_one :customer, hash_attribute: 'entity',
                                     deserializer: LedgerSync::Ledgers::NetSuite::Customer::Deserializer
 
-          # references_many :line_items,
-          #                 hash_attribute: 'item.items',
-          #                 deserializer: LedgerSync::Ledgers::NetSuite::InvoiceLineItem::Deserializer
+          references_many :line_items,
+                          hash_attribute: 'item.items',
+                          deserializer: LedgerSync::Ledgers::NetSuite::InvoiceLineItem::Deserializer
         end
       end
     end

@@ -10,17 +10,20 @@ module LedgerSync
   module Ledgers
     module NetSuite
       class CreditMemo < NetSuite::Resource
-        attribute :external_id, type: Type::String
         attribute :created_date, type: Type::DateTime
         #amountremaining
         attribute :amount_remaining, type: Type::Float
         attribute :amount_paid, type: Type::Float
+        attribute :applied, type: Type::Float
+        attribute :balance, type: Type::Float
+        attribute :exchange_rate, type: Type::Float
         attribute :estimated_gross_profit, type: Type::Float
         attribute :estimated_gross_profit_percent, type: Type::Float
         #saleseffectivedate
         attribute :sales_effective_date, type: Type::Date
         # shipAddress
         attribute :ship_address, type: Type::String
+        attribute :ship_date, type: Type::Date
         attribute :status, type: Type::String
         attribute :total, type: Type::Float
         # "tranId": "CM01",
@@ -33,7 +36,7 @@ module LedgerSync
         references_one :account, to: Account
         references_one :customer, to: Customer
 
-        # references_many :line_items, to: InvoiceLineItem
+        references_many :line_items, to: InvoiceLineItem
 
         def name
           "CreditNote: #{transaction_date}"
