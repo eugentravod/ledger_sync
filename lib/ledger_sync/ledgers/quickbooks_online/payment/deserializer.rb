@@ -2,6 +2,7 @@
 
 require_relative '../reference/deserializer'
 require_relative '../payment_line/deserializer'
+require_relative '../account/deserializer'
 
 module LedgerSync
   module Ledgers
