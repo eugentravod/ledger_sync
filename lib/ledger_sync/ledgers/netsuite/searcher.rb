@@ -26,8 +26,9 @@ module LedgerSync
         end
 
         def query_criteria
+
           @query_criteria ||= if criteria.present?
-            "WHERE #{criteria}"
+            query_table.include?('WHERE') ? "AND #{criteria}" : "WHERE #{criteria}"
           else
             ''
           end

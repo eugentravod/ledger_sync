@@ -6,7 +6,7 @@ module LedgerSync
       class Item
         class SearcherDeserializer < NetSuite::Deserializer
           id
-
+          attribute :item_id, hash_attribute: :itemid
         end
       end
     end

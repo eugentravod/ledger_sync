@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../reference/serializer'
-require_relative '../customer_currency_list_item/serializer'
+require_relative '../currency_list_item/serializer'
 require_relative '../tax_code/serializer'
 
 module LedgerSync
@@ -32,7 +32,7 @@ module LedgerSync
 
           references_many 'currencyList.items', 
                           resource_attribute: :currency_list,
-                          serializer: LedgerSync::Ledgers::NetSuite::CustomerCurrencyListItem::Serializer
+                          serializer: LedgerSync::Ledgers::NetSuite::CurrencyListItem::Serializer
         end
       end
     end

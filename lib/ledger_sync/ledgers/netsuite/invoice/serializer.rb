@@ -6,6 +6,7 @@ require_relative '../currency/serializer'
 require_relative '../account/serializer'
 require_relative '../invoice_line_item/serializer'
 require_relative '../location/serializer'
+require_relative '../accounting_period/serializer'
 
 module LedgerSync
   module Ledgers
@@ -37,6 +38,8 @@ module LedgerSync
           references_one :account
           references_one :entity, resource_attribute: :customer,
                                     serializer: LedgerSync::Ledgers::NetSuite::Customer::Serializer
+          references_one :postingperiod, resource_attribute: :posting_period,
+                                    serializer: LedgerSync::Ledgers::NetSuite::AccountingPeriod::Serializer
 
           references_many 'item.items', resource_attribute: 'line_items',
                                         serializer: LedgerSync::Ledgers::NetSuite::InvoiceLineItem::Serializer

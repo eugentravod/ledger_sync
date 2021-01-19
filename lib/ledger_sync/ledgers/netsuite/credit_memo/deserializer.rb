@@ -24,6 +24,7 @@ module LedgerSync
           attribute :total
           attribute :applied
           attribute :balance
+          attribute :memo
           attribute :exchange_rate, hash_attribute: 'exchangeRate'
           attribute :transaction_id, hash_attribute: 'tranId'
           attribute :transaction_date, hash_attribute: 'trandate'

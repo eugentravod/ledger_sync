@@ -125,7 +125,10 @@ module LedgerSync
             CustomerDeposit => 'customerdeposit',
             LedgerClass => 'classification',
             JournalEntry => 'journalEntry',
-            CreditMemo => 'creditmemo'
+            CreditMemo => 'creditmemo',
+            AccountingPeriod => 'accountingperiod',
+            VendorBill => 'vendorbill',
+            VendorCredit => 'vendorcredit',
           }
         end
 

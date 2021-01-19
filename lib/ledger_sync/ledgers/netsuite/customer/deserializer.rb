@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../customer_currency_list_item/deserializer'
+require_relative '../currency_list_item/deserializer'
 require_relative '../tax_code/deserializer'
 
 module LedgerSync
@@ -30,7 +30,7 @@ module LedgerSync
 
           references_many :currency_list, 
                     hash_attribute: 'currencyList.items',
-                    deserializer: LedgerSync::Ledgers::NetSuite::CustomerCurrencyListItem::Deserializer
+                    deserializer: LedgerSync::Ledgers::NetSuite::CurrencyListItem::Deserializer
         end
       end
     end

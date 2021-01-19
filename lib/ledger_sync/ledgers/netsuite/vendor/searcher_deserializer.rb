@@ -7,13 +7,7 @@ module LedgerSync
         class SearcherDeserializer < NetSuite::Deserializer
           id
 
-          attribute :email
-
-          attribute :company_name,
-                    hash_attribute: :companyname
-
-          attribute :phone_number,
-                    hash_attribute: :phone
+          attribute :external_id, hash_attribute: :externalId
         end
       end
     end

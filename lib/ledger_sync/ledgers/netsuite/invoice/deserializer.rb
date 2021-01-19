@@ -4,6 +4,7 @@ require_relative '../currency/deserializer'
 require_relative '../account/deserializer'
 require_relative '../customer/deserializer'
 require_relative '../invoice_line_item/deserializer'
+require_relative '../accounting_period/deserializer'
 
 module LedgerSync
   module Ledgers
@@ -36,6 +37,8 @@ module LedgerSync
           references_one :account
           references_one :customer, hash_attribute: 'entity',
                                     deserializer: LedgerSync::Ledgers::NetSuite::Customer::Deserializer
+          references_one :posting_period, hash_attribute: 'postingperiod',
+                                          deserializer: LedgerSync::Ledgers::NetSuite::AccountingPeriod::Deserializer
 
           references_many :line_items,
                           hash_attribute: 'item.items',

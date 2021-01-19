@@ -8,6 +8,7 @@ module LedgerSync
           ledger_id
 
           attribute :refName, resource_attribute: :ref_name
+          attribute :itemid, resource_attribute: :item_id
 
         end
       end

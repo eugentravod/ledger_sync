@@ -7,6 +7,7 @@ module LedgerSync
         class Deserializer < NetSuite::Deserializer
           id
           attribute :ref_name, hash_attribute: :refName
+          attribute :item_id, hash_attribute: :itemid
         end
       end
     end

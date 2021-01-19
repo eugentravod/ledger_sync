@@ -5,6 +5,7 @@ require_relative 'currency'
 require_relative 'customer'
 require_relative 'invoice_line_item'
 require_relative 'location'
+require_relative 'accounting_period'
 
 module LedgerSync
   module Ledgers
@@ -32,6 +33,7 @@ module LedgerSync
         references_one :currency, to: Currency
         references_one :account, to: Account
         references_one :customer, to: Customer
+        references_one :posting_period, to: AccountingPeriod
 
         references_many :line_items, to: InvoiceLineItem
 

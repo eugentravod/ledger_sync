@@ -14,7 +14,7 @@ module LedgerSync
         class Serializer < NetSuite::Serializer
           ledger_id
 
-          attribute :external_id, resource_attribute: :externalid
+          attribute :externalid, resource_attribute: :external_id
           attribute :createdDate, resource_attribute: :created_date
           attribute :amountpaid, resource_attribute: :amount_paid
           attribute :amountremaining, resource_attribute: :amount_remaining
@@ -25,6 +25,7 @@ module LedgerSync
           attribute :total
           attribute :applied
           attribute :balance
+          attribute :memo
           attribute :exchangeRate, resource_attribute: :exchange_rate
           attribute :tranId, resource_attribute: :transaction_id 
           attribute :trandate, resource_attribute: :transaction_date
