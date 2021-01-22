@@ -8,7 +8,7 @@ module LedgerSync
   module Ledgers
     module NetSuite
       class Vendor < NetSuite::Resource
-        attribute :enitty_id, type: Type::String
+        attribute :entity_id, type: Type::String
         attribute :email, type: Type::String
         attribute :ref_name, type: Type::String
         references_one :subsidiary, to: Subsidiary
