@@ -11,6 +11,9 @@ module LedgerSync
           ledger_id
 
           attribute :externalId, resource_attribute: :external_id
+          # Assign to entityId value of external_id. It seems that NetSuite uses this value to check the uniqueness of the record.
+          # By default name is used which creates a problem of impossiblity to create two records for two diffrent persons that happen to have the same name.
+          attribute :entityId, resource_attribute: :entity_id
           attribute :companyName, resource_attribute: :company_name
           attribute :email
           attribute :firstName, resource_attribute: :first_name

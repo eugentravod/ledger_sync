@@ -11,6 +11,8 @@ module LedgerSync
           id
 
           attribute :external_id, hash_attribute: :externalId
+          attribute :entity_id, hash_attribute: :entityId
+
           # attribute :ref_name, hash_attribute: :refName
           attribute :subsidiary, type: Type::DeserializerSubsidiaryType.new(subsidiary_class: Subsidiary)
           attribute :email
