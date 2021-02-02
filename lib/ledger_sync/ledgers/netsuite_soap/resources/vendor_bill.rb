@@ -6,6 +6,7 @@ require_relative 'vendor'
 require_relative 'vendor_bill_line_item'
 require_relative 'location'
 require_relative 'accounting_period'
+require_relative 'vendor_bill_approval_status'
 
 module LedgerSync
   module Ledgers
