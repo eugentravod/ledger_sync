@@ -5,6 +5,7 @@ require_relative '../account/deserializer'
 require_relative '../customer/deserializer'
 require_relative '../invoice_line_item/deserializer'
 require_relative '../accounting_period/deserializer'
+require_relative '../invoice_status/deserializer'
 
 module LedgerSync
   module Ledgers
@@ -28,7 +29,9 @@ module LedgerSync
           attribute :end_date, hash_attribute: 'endDate'
           attribute :exchange_rate, hash_attribute: 'exchangeRate'
           
-          attribute :status
+          references_one :status, hash_attribute: 'status', 
+                                  deserializer: LedgerSync::Ledgers::NetSuite::InvoiceStatus::Deserializer
+
           attribute :total
           attribute :transaction_id, hash_attribute: 'tranId'
           attribute :transaction_date, hash_attribute: 'trandate'

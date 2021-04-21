@@ -6,6 +6,7 @@ require_relative 'customer'
 require_relative 'invoice_line_item'
 require_relative 'location'
 require_relative 'accounting_period'
+require_relative 'invoice_status'
 
 module LedgerSync
   module Ledgers
@@ -24,7 +25,7 @@ module LedgerSync
         attribute :ship_date, type: Type::Date
         attribute :start_date, type: Type::Date
         attribute :end_date, type: Type::Date
-        attribute :status, type: Type::String
+        references_one :status, to: InvoiceStatus
         attribute :total, type: Type::Float
         attribute :transaction_id, type: Type::String
         attribute :transaction_date, type: Type::Date

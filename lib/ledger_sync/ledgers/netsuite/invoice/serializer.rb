@@ -7,6 +7,7 @@ require_relative '../account/serializer'
 require_relative '../invoice_line_item/serializer'
 require_relative '../location/serializer'
 require_relative '../accounting_period/serializer'
+require_relative '../invoice_status/serializer'
 
 module LedgerSync
   module Ledgers
@@ -28,7 +29,9 @@ module LedgerSync
           attribute :startDate, resource_attribute: :start_date
           attribute :endDate, resource_attribute: :end_date
           attribute :exchangeRate, resource_attribute: :exchange_rate
-          attribute :status
+          references_one :status, resource_attribute: :status, 
+                                  serializer: LedgerSync::Ledgers::NetSuite::InvoiceStatus::Serializer
+
           attribute :total
           attribute :tranId, resource_attribute: :transaction_id 
           attribute :trandate, resource_attribute: :transaction_date
