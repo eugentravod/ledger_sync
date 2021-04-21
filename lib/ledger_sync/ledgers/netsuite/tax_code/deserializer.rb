@@ -6,8 +6,7 @@ module LedgerSync
       class TaxCode
         class Deserializer < NetSuite::Deserializer
           id
-          attribute :ref_name,
-                    hash_attribute: :refName
+          attribute :ref_name, hash_attribute: :refName
         end
       end
     end
