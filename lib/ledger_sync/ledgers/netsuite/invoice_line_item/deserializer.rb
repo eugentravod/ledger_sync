@@ -19,7 +19,6 @@ module LedgerSync
           attribute :cost_estimate, hash_attribute: :costEstimate
 
           references_one :item, hash_attribute: 'item', deserializer: LedgerSync::Ledgers::NetSuite::Item::Deserializer
-          references_one :tax_code, hash_attribute: 'taxCode', deserializer: LedgerSync::Ledgers::NetSuite::TaxCode::Deserializer
 
           references_one :source_language, hash_attribute: 'custcolcustline_from_lang_field', deserializer: LedgerSync::Ledgers::NetSuite::Item::Deserializer
           references_one :target_language, hash_attribute: 'custcolcustline_to_lang_field', deserializer: LedgerSync::Ledgers::NetSuite::Item::Deserializer

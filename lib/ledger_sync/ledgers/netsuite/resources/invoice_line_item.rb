@@ -14,7 +14,6 @@ module LedgerSync
         attribute :quantity, type: Type::Float
         attribute :rate, type: Type::Float
         attribute :cost_estimate, type: Type::Float
-        references_one :tax_code, to: TaxCode
         attribute :item_type, type: Type::String
         attribute :subtype, type: Type::String
         references_one :item, to: Item
